@@ -5,7 +5,7 @@ This mobility data shows how visits to places such as Grocery stores and Parks, 
 
 To predict the rate of spread we have tried using different models, which majorly fall under 2 approaches: 
 
-### 1. Regression methods - For this, we have used the following approaches - 
+**1. Regression methods** - For this, we have used the following approaches - 
 
   * 1.1. Linear Regression on complete dataset - This approach was majorly used to be able to compute the Variance Inflation Factor of the predictors, because we expected heavy multicollinearity to exist between them. The dataset involves 6 different mobility types, recorded for t-11 days thus composing the 66 predictors. The computed VIF confirmed our assumption of multicollinearity, as indicated by the extremely high factor values for each predictor. We thus proceeded towards subset selection and shrinkage methods to reduce the feature space.
   
@@ -14,7 +14,7 @@ To predict the rate of spread we have tried using different models, which majorl
   * 1.4. Ridge Regression
   * 1.5. Best Subset Selection from amongst the chosen Principal Components after PCA
   
-### 2. Tree-Based Methods - For this, we have used the following approaches
+**2. Tree-Based Methods** - For this, we have used the following approaches
 
   * 2.1. Bagging/Random Forest
   * 2.2. Xtreme Gradient Boosting
