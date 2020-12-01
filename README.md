@@ -1,11 +1,11 @@
 # Prediction-of-Rate-of-Spread-of-COVID-19
 
-Required Packages - 
+### Required Packages - 
 
-readxl
-tidyverse
-xgboost
-caret
+* readxl
+* tidyverse
+* xgboost
+* caret
 
 In this Project, we have tried to predict the current speed of COVID-19 spread using mobility data from Google - [https://www.google.com/covid19/mobility/]. 
 This mobility data shows how visits to places such as Grocery stores and Parks, are changing in a sample locality. 
