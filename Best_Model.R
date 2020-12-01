@@ -58,7 +58,7 @@ for (i in 1:nrow(xgbGrid)){
 }
 
 
-### 3.3 Fitting/Training a XGBoost Model on complete train data for hyperparameters are as chosen by the above grid for lowest Test MSE
+### 3.3 Fitting/Training a XGBoost Model on complete train data for best hyperparameters as chosen by the above grid for lowest Test MSE
 
 set.seed(122)
 xgb_model_best_grid <- xgboost(
