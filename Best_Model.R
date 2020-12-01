@@ -23,7 +23,7 @@ test_data = readxl::read_excel('R_calculated_v2_11_Day_Interval_test.xlsx')
 ### 3.1 Configuring the hyperparameter grid with range of values
 
 set.seed(122)
-xgbGrid <- expand.grid(nrounds = c(400,600,800), #no of iterations
+xgbGrid <- expand.grid(nrounds = c(400,600), #no of iterations
                        max_depth = c(5, 10, 15, 20, 25), #maximum tree depth
                        colsample_bytree = seq(0.2, 0.9, length.out = 5), #column sampling
                        eta = seq(0.1, 0.9), #learning rate for adjusting weights at each step
@@ -42,7 +42,7 @@ set.seed(122)
 for (i in 1:nrow(xgbGrid)){
   set.seed(122)
   xgb_model_full_grid <- xgboost(
-    data.matrix(data[,-1]), 
+    data.matrix(data[,-1]),
     label = data$Mean.R.,
     nround = xgbGrid$nrounds[i],
     max_depth = xgbGrid$max_depth[i],
@@ -78,3 +78,8 @@ set.seed(122)
 predicted_test_data = predict(xgb_model_best_grid, data.matrix(test_data[,-1]))
 test_mse_xgb = mean((predicted_test_data - test_data$`Mean(R)`)^2)
 print(paste("The Final Test MSE for Xtreme Gradient Boosting is:",test_mse_xgb))
+
+### 3.5 Important Features that contribute in improving accuracy brought about by them to the branches they are on.
+
+importance_matrix = xgb.importance(colnames(data[,-1]), model=xgb_model_best_grid)
+xgb.plot.importance(importance_matrix = importance_matrix)
